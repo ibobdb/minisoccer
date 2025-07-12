@@ -1,50 +1,65 @@
 # Docker Deployment Guide
 
-This guide explains how to set up Docker Hub deployment for the minisoccer project using GitHub Actions.
+This guide explains how to deploy the minisoccer project using Docker Compose.
 
-## Prerequisites
+## Quick Start
 
-1. **Docker Hub Account**: Create an account at [hub.docker.com](https://hub.docker.com)
-2. **Docker Hub Repository**: Create a repository named `minisoccer` in your Docker Hub account
-3. **GitHub Repository Secrets**: Configure the required secrets in your GitHub repository
+### For Production (using Supabase)
 
-## Required GitHub Secrets
-
-Navigate to your GitHub repository → Settings → Secrets and variables → Actions, then add these secrets:
-
-### Docker Hub Authentication
-
-- `DOCKERHUB_USERNAME`: Your Docker Hub username
-- `DOCKERHUB_TOKEN`: Your Docker Hub access token (create one in Docker Hub → Account Settings → Security → Access Tokens)
-
-### Database Configuration
-
-- `DATABASE_URL`: Your production database URL (e.g., PostgreSQL connection string)
-- `DIRECT_URL`: Direct database connection URL (for Prisma migrations)
-
-### Authentication Configuration
-
-- `BETTER_AUTH_SECRET`: Secret key for Better Auth (generate a random 32+ character string)
-- `BETTER_AUTH_URL`: Your production domain URL (e.g., `https://yourdomain.com`)
-- `NEXT_PUBLIC_BETTER_AUTH_URL`: Same as BETTER_AUTH_URL (public environment variable)
-
-## How to Use
-
-### Manual Trigger
-
-1. Go to your GitHub repository
-2. Click on "Actions" tab
-3. Select "Docker Build and Push to Docker Hub" workflow
-4. Click "Run workflow"
-
-### Automatic Trigger
-
-The workflow automatically runs when you push a git tag:
+1. Copy the environment variables:
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+cp .env.example .env.production
 ```
+
+2. Edit `.env.production` with your production values
+3. Deploy using the production compose file:
+
+```bash
+docker-compose -f docker-compose.prod.yml --env-file .env.production up -d
+```
+
+### For Development with Local Database
+
+1. Use the main compose file:
+
+```bash
+docker-compose up -d
+```
+
+## Environment Configuration
+
+Create a `.env.production` file with the following variables:
+
+### Required Variables
+
+- `DATABASE_URL`: Your Supabase connection string
+- `DIRECT_URL`: Your direct Supabase connection string
+- `BETTER_AUTH_SECRET`: Generate a secure random string (32+ characters)
+- `BETTER_AUTH_URL`: Your production domain (e.g., `https://yourdomain.com`)
+- `NEXT_PUBLIC_BETTER_AUTH_URL`: Same as BETTER_AUTH_URL
+
+### Optional Variables
+
+- `MAINTENANCE_MODE`: Set to `true` to enable maintenance mode (default: `false`)
+- `ENABLE_SIGNUP`: Set to `false` to disable new user registrations (default: `true`)
+- `RESEND_API_KEY`: For email functionality
+- `EMAIL_USER`: Email sender address
+- `CLOUDINARY_*`: For file uploads
+
+## Compose Files
+
+### docker-compose.yml
+
+- Includes local PostgreSQL database
+- Suitable for development and testing
+- App runs on port 3000, database on port 5432
+
+### docker-compose.prod.yml
+
+- Production-ready configuration
+- Uses external database (Supabase)
+- Includes health checks and proper logging
 
 ## Docker Images
 

@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  minisoccer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minisoccer-app
+    restart: unless-stopped
+    volumes:
+      - /var/log/minisoccer:/app/logs
+    ports:
+      - '3000:3000'
+    environment:
+      # Database
+      DATABASE_URL: ${DATABASE_URL}
+      DIRECT_URL: ${DIRECT_URL}
+
+      # Authentication
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL}
+      NEXT_PUBLIC_BETTER_AUTH_URL: ${NEXT_PUBLIC_BETTER_AUTH_URL}
+
+      # Application settings
+      MAINTENANCE_MODE: ${MAINTENANCE_MODE:-false}
+      NODE_ENV: ${NODE_ENV:-production}
+      ENABLE_SIGNUP: ${ENABLE_SIGNUP:-true}
+
+      # Email service (if needed)
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_VERIFICATION_CALLBACK_URL: ${EMAIL_VERIFICATION_CALLBACK_URL}
+
+      # File uploads (if using Cloudinary)
+      NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
+      NEXT_PUBLIC_CLOUDINARY_API_KEY: ${NEXT_PUBLIC_CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+
+      # Timezone
+      TZ: Asia/Jakarta
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+    networks:
+      - caddy_network
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -f http://localhost:3000/api/health || exit 1']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  caddy_network:
+    external: true
