@@ -51,7 +51,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         <DashboardNavbar onMenuClick={toggleSidebar} />
         <main
           className={cn(
-            'flex-grow overflow-auto transition-all duration-300 bg-gray-50 dark:bg-gray-900/20'
+            'flex-grow overflow-auto transition-all duration-300 bg-gray-50'
           )}
         >
           <div className="px-2 py-8 md:px-8 max-w-[1600px] mx-auto">

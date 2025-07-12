@@ -219,7 +219,7 @@ export function DashboardSidebar({ isCollapsed }: DashboardSidebarProps) {
       {/* Logo and Toggle Button */}
       <div className="h-16 border-b border-border flex items-center justify-between p-4">
         <div className="flex items-center gap-3 overflow-hidden">
-          <div className="flex items-center justify-center w-9 h-9 rounded-md bg-primary text-primary-foreground dark:bg-primary/10 dark:text-primary">
+          <div className="flex items-center justify-center w-9 h-9 rounded-md bg-primary text-primary-foreground">
             <Image
               src="/logo.png"
               alt="MSOCC Logo"

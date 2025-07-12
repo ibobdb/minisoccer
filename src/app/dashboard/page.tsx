@@ -47,7 +47,7 @@ function DashboardContent() {
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {/* Total Players */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Total Players
@@ -74,7 +74,7 @@ function DashboardContent() {
           </Card>
 
           {/* Active Teams */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Active Teams
@@ -102,7 +102,7 @@ function DashboardContent() {
           </Card>
 
           {/* Upcoming Matches */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Upcoming Matches
@@ -130,7 +130,7 @@ function DashboardContent() {
           </Card>
 
           {/* Total Revenue */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Total Revenue
@@ -159,7 +159,7 @@ function DashboardContent() {
         {/* Additional Stats Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-6">
           {/* Fields Booked */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Fields Booked Today
@@ -187,7 +187,7 @@ function DashboardContent() {
           </Card>
 
           {/* Equipment Rentals */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Equipment Rentals
@@ -213,7 +213,7 @@ function DashboardContent() {
           </Card>
 
           {/* Tournament Registrations */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-base font-medium">
                 Tournament Signups
@@ -243,7 +243,7 @@ function DashboardContent() {
           </Card>
         </div>
         {/* Recent Matches Section */}
-        <Card className="mt-8 border border-gray-200 dark:border-gray-800 shadow-sm">
+        <Card className="mt-8 border border-gray-200 shadow-sm">
           <CardHeader>
             <CardTitle>Recent Matches</CardTitle>
             <CardDescription>
@@ -252,7 +252,7 @@ function DashboardContent() {
           </CardHeader>
           <CardContent>
             <div className="space-y-5">
-              <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-4">
+              <div className="flex items-center justify-between border-b border-gray-100 pb-4">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <h3 className="font-medium">
@@ -265,7 +265,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-lg font-bold text-green-600">3-2</span>
-                  <span className="text-sm text-green-600 font-medium bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded">
+                  <span className="text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded">
                     Completed
                   </span>
                   <Button variant="outline" size="sm">
@@ -274,7 +274,7 @@ function DashboardContent() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-4">
+              <div className="flex items-center justify-between border-b border-gray-100 pb-4">
                 <div className="flex items-center gap-4">
                   <div className="text-center">
                     <h3 className="font-medium">
@@ -287,7 +287,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-lg font-bold text-blue-600">1-1</span>
-                  <span className="text-sm text-blue-600 font-medium bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded">
+                  <span className="text-sm text-blue-600 font-medium bg-blue-50 px-2 py-1 rounded">
                     Draw
                   </span>
                   <Button variant="outline" size="sm">
@@ -308,7 +308,7 @@ function DashboardContent() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-sm text-orange-600 font-medium bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">
+                  <span className="text-sm text-orange-600 font-medium bg-orange-50 px-2 py-1 rounded">
                     Upcoming
                   </span>
                   <Button variant="outline" size="sm">
@@ -322,7 +322,7 @@ function DashboardContent() {
         {/* Quick Stats and League Tables */}
         <div className="grid gap-6 md:grid-cols-2 mt-8">
           {/* Top Scorers */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader>
               <CardTitle>Top Scorers</CardTitle>
               <CardDescription>
@@ -333,7 +333,7 @@ function DashboardContent() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-100 dark:bg-yellow-900/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
                       <span className="text-yellow-600 font-bold text-sm">
                         1
                       </span>
@@ -349,7 +349,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                       <span className="text-gray-600 font-bold text-sm">2</span>
                     </div>
                     <div>
@@ -363,7 +363,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
                       <span className="text-orange-600 font-bold text-sm">
                         3
                       </span>
@@ -382,7 +382,7 @@ function DashboardContent() {
           </Card>
 
           {/* League Standings */}
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm">
+          <Card className="border border-gray-200 shadow-sm">
             <CardHeader>
               <CardTitle>League Standings</CardTitle>
               <CardDescription>Current season standings</CardDescription>
@@ -391,7 +391,7 @@ function DashboardContent() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                       <span className="text-green-600 font-bold text-sm">
                         1
                       </span>
@@ -405,7 +405,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                       <span className="text-blue-600 font-bold text-sm">2</span>
                     </div>
                     <div>
@@ -417,7 +417,7 @@ function DashboardContent() {
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                       <span className="text-purple-600 font-bold text-sm">
                         3
                       </span>

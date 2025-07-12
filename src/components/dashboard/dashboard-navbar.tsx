@@ -46,7 +46,7 @@ export function DashboardNavbar({ onMenuClick }: DashboardNavbarProps) {
 
   const userInitials = user?.name ? getUserInitials(user.name) : 'U';
   return (
-    <header className="bg-white dark:bg-gray-950 border-b border-border h-16 flex items-center px-6 md:px-8 justify-between sticky top-0 z-10 shadow-sm py-4">
+    <header className="bg-white border-b border-border h-16 flex items-center px-6 md:px-8 justify-between sticky top-0 z-10 shadow-sm py-4">
       {/* Left Side - Menu Button and Search */}
       <div className="flex items-center">
         <Button
@@ -68,7 +68,7 @@ export function DashboardNavbar({ onMenuClick }: DashboardNavbarProps) {
           <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search..."
-            className="pl-9 py-5 h-10 bg-gray-50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800 rounded-md"
+            className="pl-9 py-5 h-10 bg-gray-50 border-gray-200 rounded-md"
             onFocus={() => setIsSearchExpanded(true)}
           />
         </div>

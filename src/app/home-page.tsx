@@ -126,9 +126,9 @@ export default function Home() {
                   className="bg-primary text-primary-foreground hover:bg-primary/90"
                   asChild
                 >
-                  <Link href="/signup">
+                  <Link href="/dashboard">
                     <PlayCircle className="mr-2 h-5 w-5" />
-                    Get Started
+                    Open Dashboard
                   </Link>
                 </Button>
               </motion.div>
@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -430,7 +430,7 @@ export default function Home() {
                       {step.step}
                     </div>
                     {index < 3 && (
-                      <div className="hidden md:block absolute top-8 left-16 w-full h-0.5 bg-gray-200 dark:bg-gray-700" />
+                      <div className="hidden md:block absolute top-8 left-16 w-full h-0.5 bg-gray-200" />
                     )}
                   </div>
                   <h3 className="font-semibold mb-2">{step.title}</h3>
@@ -445,7 +445,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -644,7 +644,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -864,7 +864,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-16 sm:py-24 bg-gray-50">
         <motion.div
           className="container mx-auto px-4 text-center"
           initial={{ opacity: 0, y: 50 }}
