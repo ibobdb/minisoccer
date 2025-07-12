@@ -324,14 +324,7 @@ export default function Home() {
                 >
                   <Card className="text-center h-full">
                     <CardHeader>
-                      <motion.div
-                        whileHover={{
-                          rotate: 360,
-                          transition: { duration: 0.6 },
-                        }}
-                      >
-                        <IconComponent className="h-12 w-12 text-primary mx-auto mb-4" />
-                      </motion.div>
+                      <IconComponent className="h-12 w-12 text-primary mx-auto mb-4" />
                       <CardTitle>{feature.title}</CardTitle>
                       <CardDescription>{feature.description}</CardDescription>
                     </CardHeader>
