@@ -74,13 +74,32 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section
-        className="relative text-white bg-cover bg-center bg-no-repeat"
+        className="relative text-white bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ backgroundImage: 'url(/hero.jpeg)' }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="container mx-auto px-4 py-16 sm:py-24 relative z-10">
+        {/* Animated background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+        {/* Subtle animated elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div
+            className="absolute top-1/3 right-1/3 w-1 h-1 bg-white rounded-full animate-ping"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          <div
+            className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse"
+            style={{ animationDelay: '2s' }}
+          ></div>
+          <div
+            className="absolute top-1/2 right-1/4 w-1 h-1 bg-white rounded-full animate-ping"
+            style={{ animationDelay: '3s' }}
+          ></div>
+        </div>
+        <div className="container mx-auto px-4 py-20 sm:py-28 lg:py-32 relative z-10">
           <motion.div
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-5xl mx-auto text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -90,20 +109,22 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Badge className="mb-4 bg-primary/20 text-white hover:bg-primary/30">
+              <Badge className="mb-6 bg-primary/20 text-white hover:bg-primary/30 font-medium">
                 ⚽ Premium Mini Soccer Experience
               </Badge>
             </motion.div>
             <motion.h1
-              className="text-4xl sm:text-6xl font-bold mb-6 text-white"
+              className="text-5xl sm:text-7xl lg:text-8xl font-black mb-8 text-white tracking-tight leading-none"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Mini Soccer
+              <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                Mini Soccer
+              </span>
             </motion.h1>
             <motion.p
-              className="text-xl sm:text-2xl mb-8 text-white/90"
+              className="text-lg sm:text-xl lg:text-2xl mb-10 text-white/90 max-w-3xl mx-auto font-medium leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -118,28 +139,30 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
                 <Button
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground hover:from-primary/90 hover:via-primary/85 hover:to-primary/70 shadow-2xl shadow-primary/25 border-0 transition-all duration-300 hover:shadow-3xl hover:shadow-primary/40"
                   asChild
                 >
-                  <Link href="/dashboard">
-                    <PlayCircle className="mr-2 h-5 w-5" />
+                  <Link href="/dashboard" className="flex items-center gap-2">
+                    <PlayCircle className="h-5 w-5" />
                     Open Dashboard
                   </Link>
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary"
+                  className="border-2 border-white/80 text-white hover:bg-white hover:text-primary backdrop-blur-sm bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white"
                   asChild
                 >
                   <Link href="/signin">Masuk</Link>
@@ -623,13 +646,18 @@ export default function Home() {
                       ))}
                     </ul>
                     <Button
-                      className={`w-full mt-6 ${
-                        plan.popular ? 'bg-primary hover:bg-primary/90' : ''
+                      className={`w-full mt-6 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ${
+                        plan.popular
+                          ? 'bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/85 hover:to-primary/70 shadow-primary/25 hover:shadow-primary/40'
+                          : 'hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/5'
                       }`}
                       variant={plan.popular ? 'default' : 'outline'}
                       asChild
                     >
-                      <Link href="/signup">
+                      <Link
+                        href="/signup"
+                        className="flex items-center justify-center gap-2"
+                      >
                         {plan.name === 'Enterprise'
                           ? 'Hubungi Kami'
                           : 'Pilih Paket'}
@@ -644,23 +672,23 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 sm:py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
               Pertanyaan yang sering diajukan beserta jawabannya
             </p>
           </motion.div>
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4">
             {[
               {
                 question: 'Bagaimana cara melakukan booking lapangan?',
@@ -687,20 +715,30 @@ export default function Home() {
                 answer:
                   'Tim support kami siap membantu 24/7 melalui chat, email, atau WhatsApp. Anda juga dapat menghubungi customer service kami untuk bantuan langsung.',
               },
+              {
+                question: 'Apakah tersedia fasilitas parkir?',
+                answer:
+                  'Ya, kami menyediakan area parkir yang luas dan aman untuk kendaraan bermotor dan mobil.',
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
                 viewport={{ once: true }}
+                className="h-full"
               >
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{faq.question}</CardTitle>
+                <Card className="h-full hover:shadow-md transition-shadow duration-200">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-base font-semibold leading-tight">
+                      {faq.question}
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{faq.answer}</p>
+                  <CardContent className="pt-0">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -898,13 +936,30 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" asChild>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/85 hover:to-primary/70 shadow-2xl shadow-primary/25 hover:shadow-3xl hover:shadow-primary/40 transition-all duration-300"
+                asChild
+              >
                 <Link href="/signup">Daftar Sekarang</Link>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" variant="outline" asChild>
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              <Button
+                size="lg"
+                variant="outline"
+                className="hover:bg-gradient-to-r hover:from-primary/10 hover:to-primary/5 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                asChild
+              >
                 <Link href="/signin">Masuk</Link>
               </Button>
             </motion.div>

@@ -10,7 +10,7 @@ export default function DashboardPageLayout({
   children,
 }: DashboardPageLayoutProps) {
   return (
-    <div className="flex flex-col space-y-6 p-6 w-full max-w-full">
+    <div className="flex flex-col space-y-6 w-full max-w-full">
       {/* Page Header */}
       <div className="flex flex-col space-y-4 lg:flex-row lg:items-start lg:justify-between lg:space-y-0">
         <div className="space-y-1">
