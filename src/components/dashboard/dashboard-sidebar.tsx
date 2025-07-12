@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -16,32 +15,23 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useAuth } from '@/context';
 import {
-  ChevronLeft,
-  ChevronRight,
   Home,
   BarChart3,
   Package,
-  ListFilter,
   Tag,
   Box,
-  Warehouse,
   Truck,
   Store,
   LineChart,
   Users,
   Settings,
-  Smartphone,
-  Cast,
   History,
   WalletCards,
   CalendarCheck,
-  MessageSquare,
-  PhoneCall,
 } from 'lucide-react';
 
 interface DashboardSidebarProps {
   isCollapsed: boolean;
-  onToggle: () => void;
 }
 
 interface SidebarItemProps {
@@ -112,12 +102,9 @@ const SidebarGroup = ({ title, children, isCollapsed }: SidebarGroupProps) => {
   );
 };
 
-export function DashboardSidebar({
-  isCollapsed,
-  onToggle,
-}: DashboardSidebarProps) {
+export function DashboardSidebar({ isCollapsed }: DashboardSidebarProps) {
   const pathname = usePathname();
-  const { user } = useAuth();
+  const {} = useAuth();
 
   const navigation = [
     {

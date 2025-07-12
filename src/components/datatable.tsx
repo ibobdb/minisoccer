@@ -16,10 +16,7 @@ import {
 
 import {
   ArrowUpDown,
-  ChevronDown,
-  MoreHorizontal,
   RefreshCw,
-  Loader2Icon,
   Download,
   ChevronLeft,
   ChevronRight,
@@ -64,8 +61,6 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-  title,
-  description,
   refreshable = false,
   exportable = false,
   searchable = true,

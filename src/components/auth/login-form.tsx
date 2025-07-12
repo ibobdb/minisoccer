@@ -49,7 +49,7 @@ export function LoginForm({
         onSuccess?.();
         router.push(redirectTo);
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);

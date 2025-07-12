@@ -2,10 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import { ConfirmDialog } from '@/components/ui/confirm-dialog';
-import {
-  ConfirmDialogOptions,
-  ConfirmDialogType,
-} from '@/hooks/useConfirmDialog';
+import { ConfirmDialogOptions } from '@/hooks/useConfirmDialog';
 
 interface ConfirmContextType {
   confirm: (options: ConfirmDialogOptions) => Promise<boolean>;

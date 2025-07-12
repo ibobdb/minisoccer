@@ -46,10 +46,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   };
   return (
     <div className="h-screen flex overflow-hidden bg-background">
-      <DashboardSidebar
-        isCollapsed={isSidebarCollapsed}
-        onToggle={toggleSidebar}
-      />
+      <DashboardSidebar isCollapsed={isSidebarCollapsed} />
       <div className="flex flex-col flex-grow w-full">
         <DashboardNavbar onMenuClick={toggleSidebar} />
         <main

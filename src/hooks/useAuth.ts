@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/better-auth.context';
 
 /**

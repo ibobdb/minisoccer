@@ -24,7 +24,7 @@ export default function Table() {
     <>
       <DataTable
         data={bookingsData as Booking[]}
-        columns={columns as any[]}
+        columns={columns}
         onRefresh={() => {}}
         refreshable={true}
         creatable={true}

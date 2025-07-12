@@ -135,8 +135,12 @@ export const columns: ColumnDef<Booking>[] = [
     header: 'Actions',
     enableSorting: false,
     cell: ({ row, table }) => {
-      const onView = (table.options.meta as any)?.onView;
-      const onEdit = (table.options.meta as any)?.onEdit;
+      const onView = (
+        table.options.meta as { onView?: (booking: Booking) => void }
+      )?.onView;
+      const onEdit = (
+        table.options.meta as { onEdit?: (booking: Booking) => void }
+      )?.onEdit;
 
       return (
         <TooltipProvider>

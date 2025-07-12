@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -11,31 +10,19 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/context/better-auth.context';
 import { LogoutButton } from '@/components/auth/logout-button';
 import { getUserInitials } from '@/lib/utils';
-import {
-  Bell,
-  Menu,
-  Search,
-  Moon,
-  Sun,
-  User,
-  Globe,
-  LogOut,
-  Settings,
-} from 'lucide-react';
+import { Menu, Search, User, LogOut, Settings } from 'lucide-react';
 interface DashboardNavbarProps {
   onMenuClick: () => void;
 }
 
 export function DashboardNavbar({ onMenuClick }: DashboardNavbarProps) {
   const { user } = useAuth();
-  const { setTheme, theme } = useTheme();
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
@@ -56,10 +43,6 @@ export function DashboardNavbar({ onMenuClick }: DashboardNavbarProps) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isSearchExpanded]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
 
   const userInitials = user?.name ? getUserInitials(user.name) : 'U';
   return (
