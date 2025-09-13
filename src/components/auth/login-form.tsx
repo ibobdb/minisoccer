@@ -35,21 +35,19 @@ export function LoginForm({
     setError('');
 
     try {
-      const { data, error } = await signIn.email({
+      const result = await signIn.email({
         email,
-        password,
+        password
       });
 
-      if (error) {
-        setError(error.message || 'Login failed');
+      if (result.error) {
+        setError(result.error.message || 'Invalid email or password');
         return;
       }
 
-      if (data) {
-        onSuccess?.();
-        router.push(redirectTo);
-      }
-    } catch {
+      onSuccess?.();
+      router.push(redirectTo);
+    } catch (err) {
       setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);

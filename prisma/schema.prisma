@@ -16,11 +16,11 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   email         String    @unique
-  emailVerified DateTime?
+  emailVerified Boolean
+  role          String
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  roles       Roles[]    @relation("UserRoles")
   // Better Auth relationships
   accounts Account[]
   sessions Session[]
@@ -31,12 +31,14 @@ model User {
 model Account {
   id                String  @id @default(cuid())
   userId            String
-  type              String
-  provider          String
-  providerAccountId String
+  accountId         String?
+  type              String?
+  providerId        String?
+  providerAccountId String?
   refresh_token     String?
   access_token      String?
   expires_at        Int?
+  password          String
   token_type        String?
   scope             String?
   id_token          String?
@@ -46,15 +48,19 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([provider, providerAccountId])
+  @@unique([providerAccountId])
   @@map("accounts")
 }
 
 model Session {
   id           String   @id @default(cuid())
-  sessionToken String   @unique
+  sessionToken String?   @unique
   userId       String
-  expires      DateTime
+  expires      DateTime?
+  token          String
+  expiresAt      DateTime
+  ipAddress      String?
+  userAgent      String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -78,8 +84,6 @@ model Roles {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  // Better Auth relationships
-  users User[] @relation("UserRoles")
 
   @@map("roles")
 }
