@@ -48,6 +48,7 @@ export function LoginForm({
       onSuccess?.();
       router.push(redirectTo);
     } catch (err) {
+      console.log(err);
       setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);

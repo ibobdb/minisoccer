@@ -2,7 +2,7 @@
 
 import { createContext, useContext, ReactNode } from 'react';
 import { useSession } from '@/lib/auth-client';
-import type { Session, User } from '@/lib/auth-client';
+import type { Session, User } from 'better-auth';
 
 interface AuthContextType {
   session: Session | null;
@@ -14,13 +14,13 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const { data: session, isPending: isLoading } = useSession();
+  const { data, isPending: isLoading } = useSession();
 
   const contextValue: AuthContextType = {
-    session,
-    user: session?.user || null,
+    session: data?.session || null,
+    user: data?.user || null,
     isLoading,
-    isAuthenticated: !!session?.user,
+    isAuthenticated: !!data?.user,
   };
 
   return (
