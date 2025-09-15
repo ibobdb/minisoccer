@@ -2,12 +2,19 @@ name: Docker Build, Push, and Deploy
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - 'v*'
+    inputs:
+      skip_build:
+        description: 'Skip build and deploy latest image?'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 jobs:
   build:
+    if: github.event.inputs.skip_build != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -48,7 +55,6 @@ jobs:
             NODE_ENV=production
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy on server
