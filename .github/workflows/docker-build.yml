@@ -70,5 +70,4 @@ jobs:
             docker run -d \
               --name sportiva \
               --network caddy_net \
-              -p 3000:3000 \
               ${{ secrets.DOCKERHUB_USERNAME }}/minisoccer:latest
